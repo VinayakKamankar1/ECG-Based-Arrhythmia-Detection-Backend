@@ -1,0 +1,485 @@
+[
+  {
+    "id": "332f31ff-6e29-4400-8d45-b118ac1a1066",
+    "doctor_id": "8891c0c7-8915-4114-821f-90e1242063dd",
+    "full_name": "Vinayak Kamankar",
+    "dob": "2001-03-23",
+    "gender": "Male",
+    "address": "kopargaon",
+    "mobile_no": "+917083571601",
+    "email": "VINAYAKKAMANKAR48@GMAIL.COM",
+    "disease": "",
+    "medical_history": "No",
+    "created_at": "2026-04-08 01:31:02",
+    "appointments": [],
+    "ecg_records": [
+      {
+        "id": "f74422e0-fef9-474b-bc23-4d9b10a96618",
+        "date": "2026-10-31 00:22:52",
+        "filename": "sample_ecg.csv",
+        "total_beats": 12,
+        "dominant_rhythm": "V",
+        "risk_level": "Low",
+        "risk_score": 100.0,
+        "diagnoses": [
+          {
+            "id": "NSR",
+            "name": "Normal Sinus Rhythm",
+            "severity": "Normal",
+            "color": "#22c55e",
+            "description": "Heart beats in a normal, regular rhythm from the sinus node.",
+            "advice": "No arrhythmia detected. Continue routine monitoring as recommended.",
+            "confidence": 82.0
+          }
+        ],
+        "hrv": {
+          "mean_rr": 836.8,
+          "sdnn": 1.2,
+          "rmssd": 1.8,
+          "hr": 71.7
+        },
+        "beat_counts": {
+          "V": 12
+        },
+        "recovery_days": 5.0
+      },
+      {
+        "id": "71588b7a-5d36-4b7e-ac01-18b62cbf1be8",
+        "date": "2026-04-09 02:42:40",
+        "filename": "pvc_ecg_data.csv",
+        "total_beats": 15,
+        "dominant_rhythm": "S",
+        "risk_level": "Moderate",
+        "risk_score": 0.0,
+        "diagnoses": [
+          {
+            "id": "PVC",
+            "name": "Premature Ventricular Contractions (PVC)",
+            "severity": "Moderate",
+            "color": "#ef4444",
+            "description": "Extra beats originating in the ventricles.",
+            "advice": "Seek cardiology evaluation if PVCs are frequent or cause symptoms.",
+            "confidence": 82.0
+          }
+        ],
+        "hrv": {
+          "mean_rr": 519.0,
+          "sdnn": 139.7,
+          "rmssd": 235.6,
+          "hr": 115.6
+        },
+        "beat_counts": {
+          "S": 8,
+          "F": 5,
+          "Q": 2
+        },
+        "recovery_days": 4.5
+      },
+      {
+        "id": "e9a7e2d1-0710-43f8-8992-30d816d60ba7",
+        "date": "2026-04-09 02:42:03",
+        "filename": "PVC.csv",
+        "total_beats": 32,
+        "dominant_rhythm": "S",
+        "risk_level": "Moderate",
+        "risk_score": 0.0,
+        "diagnoses": [
+          {
+            "id": "PVC",
+            "name": "Premature Ventricular Contractions (PVC)",
+            "severity": "Moderate",
+            "color": "#ef4444",
+            "description": "Extra beats originating in the ventricles.",
+            "advice": "Seek cardiology evaluation if PVCs are frequent or cause symptoms.",
+            "confidence": 82.0
+          }
+        ],
+        "hrv": {
+          "mean_rr": 908.0,
+          "sdnn": 293.9,
+          "rmssd": 525.4,
+          "hr": 66.1
+        },
+        "beat_counts": {
+          "S": 23,
+          "Q": 9
+        },
+        "recovery_days": 4.5
+      },
+      {
+        "id": "764033de-b9ea-473c-b02e-7c131126a336",
+        "date": "2026-04-09 02:42:02",
+        "filename": "VT.csv",
+        "total_beats": 46,
+        "dominant_rhythm": "Q",
+        "risk_level": "High",
+        "risk_score": 0.0,
+        "diagnoses": [
+          {
+            "id": "VT",
+            "name": "Ventricular Tachycardia (VT)",
+            "severity": "High",
+            "color": "#dc2626",
+            "description": "Rapid rhythm originating in the ventricles \u00e2\u20ac\u201d potentially life-threatening.",
+            "advice": "Urgent medical evaluation required. May require ICD or antiarrhythmic therapy.",
+            "confidence": 85.0
+          }
+        ],
+        "hrv": {
+          "mean_rr": 598.7,
+          "sdnn": 524.1,
+          "rmssd": 648.4,
+          "hr": 100.2
+        },
+        "beat_counts": {
+          "Q": 46
+        },
+        "recovery_days": 21.5
+      },
+      {
+        "id": "fcc04793-0454-4b87-8edb-1213e48849cc",
+        "date": "2026-04-09 02:42:00",
+        "filename": "AFib.csv",
+        "total_beats": 23,
+        "dominant_rhythm": "Q",
+        "risk_level": "High",
+        "risk_score": 0.0,
+        "diagnoses": [
+          {
+            "id": "AFib",
+            "name": "Atrial Fibrillation (AFib)",
+            "severity": "High",
+            "color": "#dc2626",
+            "description": "Irregular, chaotic atrial activity with highly variable RR intervals.",
+            "advice": "Seek prompt medical attention. AFib increases stroke risk. Anticoagulation may be needed.",
+            "confidence": 90.0
+          }
+        ],
+        "hrv": {
+          "mean_rr": 1250.4,
+          "sdnn": 832.0,
+          "rmssd": 1366.5,
+          "hr": 48.0
+        },
+        "beat_counts": {
+          "S": 1,
+          "Q": 22
+        },
+        "recovery_days": 18.0
+      },
+      {
+        "id": "d235deb9-b9a6-454d-bdf7-ec45f2064cc8",
+        "date": "2026-04-09 02:41:08",
+        "filename": "NSR.csv",
+        "total_beats": 37,
+        "dominant_rhythm": "S",
+        "risk_level": "Low",
+        "risk_score": 0.0,
+        "diagnoses": [
+          {
+            "id": "NSR",
+            "name": "Normal Sinus Rhythm",
+            "severity": "Normal",
+            "color": "#22c55e",
+            "description": "Heart beats in a normal, regular rhythm from the sinus node.",
+            "advice": "No arrhythmia detected. Continue routine monitoring as recommended.",
+            "confidence": 82.0
+          }
+        ],
+        "hrv": {
+          "mean_rr": 816.6,
+          "sdnn": 22.5,
+          "rmssd": 22.1,
+          "hr": 73.5
+        },
+        "beat_counts": {
+          "S": 36,
+          "F": 1
+        },
+        "recovery_days": 0.0
+      },
+      {
+        "id": "52eb8e42-e3c9-4426-a6fd-9f44db711123",
+        "date": "2026-04-09 02:40:30",
+        "filename": "NSR.csv",
+        "total_beats": 37,
+        "dominant_rhythm": "S",
+        "risk_level": "Low",
+        "risk_score": 0.0,
+        "diagnoses": [
+          {
+            "id": "NSR",
+            "name": "Normal Sinus Rhythm",
+            "severity": "Normal",
+            "color": "#22c55e",
+            "description": "Heart beats in a normal, regular rhythm from the sinus node.",
+            "advice": "No arrhythmia detected. Continue routine monitoring as recommended.",
+            "confidence": 82.0
+          }
+        ],
+        "hrv": {
+          "mean_rr": 816.6,
+          "sdnn": 22.5,
+          "rmssd": 22.1,
+          "hr": 73.5
+        },
+        "beat_counts": {
+          "S": 36,
+          "F": 1
+        },
+        "recovery_days": null
+      },
+      {
+        "id": "2123202f-a2de-480c-89b6-ada56ea84cd4",
+        "date": "2026-04-09 02:37:11",
+        "filename": "NSR.csv",
+        "total_beats": 37,
+        "dominant_rhythm": "S",
+        "risk_level": "Low",
+        "risk_score": 0.0,
+        "diagnoses": [
+          {
+            "id": "NSR",
+            "name": "Normal Sinus Rhythm",
+            "severity": "Normal",
+            "color": "#22c55e",
+            "description": "Heart beats in a normal, regular rhythm from the sinus node.",
+            "advice": "No arrhythmia detected. Continue routine monitoring as recommended.",
+            "confidence": 82.0
+          }
+        ],
+        "hrv": {
+          "mean_rr": 816.6,
+          "sdnn": 22.5,
+          "rmssd": 22.1,
+          "hr": 73.5
+        },
+        "beat_counts": {
+          "S": 36,
+          "F": 1
+        },
+        "recovery_days": null
+      },
+      {
+        "id": "ca67c31a-c3ea-4a88-ab44-8af16872465b",
+        "date": "2026-04-09 02:10:40",
+        "filename": "NSR.csv",
+        "total_beats": 37,
+        "dominant_rhythm": "S",
+        "risk_level": "Low",
+        "risk_score": 0.0,
+        "diagnoses": [
+          {
+            "id": "NSR",
+            "name": "Normal Sinus Rhythm",
+            "severity": "Normal",
+            "color": "#22c55e",
+            "description": "Heart beats in a normal, regular rhythm from the sinus node.",
+            "advice": "No arrhythmia detected. Continue routine monitoring as recommended.",
+            "confidence": 82.0
+          }
+        ],
+        "hrv": {
+          "mean_rr": 816.6,
+          "sdnn": 22.5,
+          "rmssd": 22.1,
+          "hr": 73.5
+        },
+        "beat_counts": {
+          "S": 36,
+          "F": 1
+        },
+        "recovery_days": null
+      },
+      {
+        "id": "9028cbf9-5020-41ae-88a1-7097caa8d028",
+        "date": "2026-04-09 01:49:44",
+        "filename": "NSR.csv",
+        "total_beats": 37,
+        "dominant_rhythm": "S",
+        "risk_level": "Low",
+        "risk_score": 0.0,
+        "diagnoses": [
+          {
+            "id": "NSR",
+            "name": "Normal Sinus Rhythm",
+            "severity": "Normal",
+            "color": "#22c55e",
+            "description": "Heart beats in a normal, regular rhythm from the sinus node.",
+            "advice": "No arrhythmia detected. Continue routine monitoring as recommended.",
+            "confidence": 82.0
+          }
+        ],
+        "hrv": {
+          "mean_rr": 816.6,
+          "sdnn": 22.5,
+          "rmssd": 22.1,
+          "hr": 73.5
+        },
+        "beat_counts": {
+          "S": 36,
+          "F": 1
+        },
+        "recovery_days": null
+      }
+    ]
+  },
+  {
+    "id": "532ed3ce-b409-424c-8226-8e420e86180c",
+    "doctor_id": "8891c0c7-8915-4114-821f-90e1242063dd",
+    "full_name": "Suyash Belhekar",
+    "dob": "2001-05-04",
+    "gender": "Male",
+    "address": "Nashik",
+    "mobile_no": "+918975588674",
+    "email": "kamankarvinayak1@gmail.com",
+    "disease": "",
+    "medical_history": "",
+    "created_at": "2026-04-09 00:38:10",
+    "appointments": [],
+    "ecg_records": [
+      {
+        "id": "abe4a36b-1325-4ab6-8bd5-e1d77af1c48a",
+        "date": "2026-04-09 14:38:08",
+        "filename": "mixed_5type_ecg.csv",
+        "total_beats": 133,
+        "dominant_rhythm": "Q",
+        "risk_level": "Low",
+        "risk_score": 0.8,
+        "diagnoses": [
+          {
+            "id": "Paced",
+            "name": "Paced Rhythm",
+            "severity": "Normal",
+            "color": "#94a3b8",
+            "description": "Heartbeats are being generated by an implanted pacemaker.",
+            "advice": "Continue regular pacemaker follow-up with your cardiologist.",
+            "confidence": 85.0
+          }
+        ],
+        "hrv": {
+          "mean_rr": 370.4,
+          "sdnn": 84.1,
+          "rmssd": 113.8,
+          "hr": 162.0
+        },
+        "beat_counts": {
+          "S": 2,
+          "V": 1,
+          "Q": 130
+        },
+        "recovery_days": 2.5
+      },
+      {
+        "id": "d2c42b72-59f8-4a98-89ce-7684cc5c188f",
+        "date": "2026-04-09 03:25:08",
+        "filename": "low_risk_ecg_data.csv",
+        "total_beats": 718,
+        "dominant_rhythm": "Q",
+        "risk_level": "Low",
+        "risk_score": 0.0,
+        "diagnoses": [
+          {
+            "id": "Paced",
+            "name": "Paced Rhythm",
+            "severity": "Normal",
+            "color": "#94a3b8",
+            "description": "Heartbeats are being generated by an implanted pacemaker.",
+            "advice": "Continue regular pacemaker follow-up with your cardiologist.",
+            "confidence": 85.0
+          }
+        ],
+        "hrv": {
+          "mean_rr": 416.7,
+          "sdnn": 18.5,
+          "rmssd": 32.4,
+          "hr": 144.0
+        },
+        "beat_counts": {
+          "Q": 718
+        },
+        "recovery_days": 2.5
+      },
+      {
+        "id": "7141472d-dd3e-4ca3-aff5-e0897d9addc7",
+        "date": "2026-04-09 02:43:48",
+        "filename": "high_arrhythmia_variant.csv",
+        "total_beats": 17,
+        "dominant_rhythm": "Q",
+        "risk_level": "Moderate",
+        "risk_score": 5.9,
+        "diagnoses": [
+          {
+            "id": "PVC",
+            "name": "Premature Ventricular Contractions (PVC)",
+            "severity": "Moderate",
+            "color": "#ef4444",
+            "description": "Extra beats originating in the ventricles.",
+            "advice": "Seek cardiology evaluation if PVCs are frequent or cause symptoms.",
+            "confidence": 82.0
+          }
+        ],
+        "hrv": {
+          "mean_rr": 583.3,
+          "sdnn": 265.7,
+          "rmssd": 302.5,
+          "hr": 102.9
+        },
+        "beat_counts": {
+          "S": 6,
+          "V": 1,
+          "Q": 10
+        },
+        "recovery_days": 5.0
+      }
+    ]
+  },
+  {
+    "id": "16894fbc-943f-4004-862f-12ffb956f3e3",
+    "doctor_id": "8891c0c7-8915-4114-821f-90e1242063dd",
+    "full_name": "Rohit",
+    "dob": "2001-07-06",
+    "gender": "Male",
+    "address": "Sanjivani university\r\nkopargaon",
+    "mobile_no": "+917083571601",
+    "email": "kamankarvinayak1@gmail.com",
+    "disease": "",
+    "medical_history": "",
+    "created_at": "2026-04-09 14:42:32",
+    "appointments": [],
+    "ecg_records": [
+      {
+        "id": "f479e202-4327-4888-8954-3189a92931ed",
+        "date": "2026-04-10 01:50:59",
+        "filename": "pvc_ecg_data.csv",
+        "total_beats": 15,
+        "dominant_rhythm": "S",
+        "risk_level": "Moderate",
+        "risk_score": 0.0,
+        "diagnoses": [
+          {
+            "id": "PVC",
+            "name": "Premature Ventricular Contractions (PVC)",
+            "severity": "Moderate",
+            "color": "#ef4444",
+            "description": "Extra beats originating in the ventricles.",
+            "advice": "Seek cardiology evaluation if PVCs are frequent or cause symptoms.",
+            "confidence": 82.0
+          }
+        ],
+        "hrv": {
+          "mean_rr": 519.0,
+          "sdnn": 139.7,
+          "rmssd": 235.6,
+          "hr": 115.6
+        },
+        "beat_counts": {
+          "S": 8,
+          "F": 5,
+          "Q": 2
+        },
+        "recovery_days": 4.5
+      }
+    ]
+  }
+]
