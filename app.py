@@ -652,15 +652,55 @@ def serve_sample():
 def predict():
     try:
         if 'file' in request.files and request.files['file'].filename:
-            f        = request.files['file']
-            df       = pd.read_csv(io.StringIO(f.read().decode('utf-8')))
+            f = request.files['file']
             filename = f.filename
+
+            # Check for non-CSV extension
+            if not filename.lower().endswith(('.csv', '.txt')):
+                return jsonify({
+                    'status': 'error',
+                    'message': f'Unsupported file format ("{filename}"). CardioAI requires an ECG time-series CSV file (.csv). Documents such as PDF or Word files cannot be analyzed.'
+                }), 400
+
+            raw_bytes = f.read()
+
+            # Guard against binary files (PDFs, Word docs, zip archives, null bytes)
+            if raw_bytes.startswith(b'%PDF') or raw_bytes.startswith(b'PK\x03\x04') or b'\x00' in raw_bytes[:1024]:
+                return jsonify({
+                    'status': 'error',
+                    'message': f'The file "{filename}" appears to be a binary document (e.g. PDF/Word document), not an ECG CSV data file. Please upload a valid CSV containing ECG voltage measurements.'
+                }), 400
+
+            # Multi-encoding decode fallback (handles UTF-8, UTF-8 with BOM, Latin-1, CP1252)
+            content = None
+            for enc in ['utf-8', 'utf-8-sig', 'latin-1', 'cp1252', 'iso-8859-1']:
+                try:
+                    content = raw_bytes.decode(enc)
+                    break
+                except UnicodeDecodeError:
+                    continue
+
+            if content is None:
+                return jsonify({
+                    'status': 'error',
+                    'message': f'Could not decode "{filename}". Please save the file with UTF-8 or standard CSV encoding.'
+                }), 400
+
+            try:
+                df = pd.read_csv(io.StringIO(content))
+            except Exception as parse_err:
+                return jsonify({
+                    'status': 'error',
+                    'message': f'Failed to parse CSV file: {str(parse_err)}. Please ensure it is a valid comma-separated values file.'
+                }), 400
+
         else:
             if not os.path.exists(SAMPLE_CSV):
                 return jsonify({'status': 'error', 'message': 'No input file provided and sample_ecg.csv is missing'}), 400
             df       = pd.read_csv(SAMPLE_CSV)
             filename = 'sample_ecg.csv'
 
+        # Auto-detect signal column
         signal_col = None
         for c in ['signal', 'Signal', 'SIGNAL', 'amplitude', 'Amplitude',
                   'value', 'Value', 'ecg', 'ECG', 'mlii', 'MLII', 'v5', 'V5']:
@@ -670,7 +710,10 @@ def predict():
         if signal_col is None:
             numeric_cols = df.select_dtypes(include=[np.number]).columns.tolist()
             if not numeric_cols:
-                raise ValueError(f"No numeric signal column found. Columns: {list(df.columns)}")
+                return jsonify({
+                    'status': 'error',
+                    'message': f'No numeric ECG signal column found in "{filename}". Found columns: {list(df.columns)}. Expected numeric time-series columns such as "signal" or "mlii".'
+                }), 400
             signal_col = numeric_cols[-1]
 
         time_col = None
@@ -679,8 +722,22 @@ def predict():
                 time_col = c
                 break
 
-        signal   = df[signal_col].dropna().values.astype(np.float32)
-        time_arr = df[time_col].values if time_col else np.arange(len(signal)) / FS
+        signal_series = pd.to_numeric(df[signal_col], errors='coerce').dropna()
+        if len(signal_series) < 50:
+            return jsonify({
+                'status': 'error',
+                'message': f'Insufficient numeric signal data in "{filename}". Found only {len(signal_series)} valid numeric values. CardioAI requires at least 50 ECG data points.'
+            }), 400
+
+        signal = signal_series.values.astype(np.float32)
+        if time_col and time_col in df:
+            time_series = pd.to_numeric(df[time_col], errors='coerce').dropna()
+            if len(time_series) == len(signal):
+                time_arr = time_series.values
+            else:
+                time_arr = np.arange(len(signal)) / FS
+        else:
+            time_arr = np.arange(len(signal)) / FS
         input_fs = infer_fs(time_arr) if time_col else FS
         time     = time_arr.tolist()
 
@@ -1057,3 +1114,4 @@ def api_correct():
 if __name__ == '__main__':
     port = int(os.environ.get('PORT', 5000))
     app.run(host='0.0.0.0', port=port, debug=False)
+
